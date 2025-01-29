@@ -1,0 +1,5 @@
+defaults: &defaults
+  number: 42
+
+values:
+  first_value: *defaults

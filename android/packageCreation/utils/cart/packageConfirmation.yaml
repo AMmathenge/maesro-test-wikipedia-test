@@ -1,0 +1,29 @@
+appId: com.pum_vendor
+---
+
+# customer detials confirmation
+
+- assertVisible:
+    text: ${PackageName}
+    optional: true
+
+- assertVisible:
+    text: ${output.details.contact}
+    optional: true
+
+
+
+# Agent confimration
+
+
+# - assertVisible:
+#     text: ${output.area.location}
+# - tapOn: 
+# - tapOn: "CBD - TOWN NAIROBI"
+
+# - tapOn: ${output.area.agent}
+# - tapOn: "Philadelphia house"
+
+
+# Destionation 
+

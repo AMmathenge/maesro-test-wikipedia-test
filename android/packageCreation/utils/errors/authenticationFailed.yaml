@@ -1,0 +1,12 @@
+appId: com.pum_vendor
+---
+# - runScript: manual/login.js
+
+- assertVisible:
+    text: ${output.login.authentication}
+    optional: true
+- runFlow:
+    when:
+      visible: ${output.login.authentication}
+    commands:
+        - tapOn: ${output.login.authentication}

@@ -1,0 +1,11 @@
+appId: com.pum_vendor
+---
+- tapOn: ${output.details.name}
+- inputText: ${PackageName}
+
+- tapOn: ${output.details.phone_no}
+- inputText: ${output.details.contact}
+
+# Hide keyboard and tap login
+- hideKeyboard
+

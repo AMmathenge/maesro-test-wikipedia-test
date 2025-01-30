@@ -1,4 +1,0 @@
-appId: com.pum_vendor
----
-- tapOn: ${output.buttons.submitButton}
-

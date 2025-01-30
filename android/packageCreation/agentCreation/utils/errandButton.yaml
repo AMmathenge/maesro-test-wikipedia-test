@@ -1,6 +1,0 @@
-appId: com.pum_vendor
----
-# Reusable flow to tap the parcel button
-
-- tapOn: ${output.button.parcel}
-

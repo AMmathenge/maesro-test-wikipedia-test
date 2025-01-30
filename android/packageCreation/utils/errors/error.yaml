@@ -1,7 +1,0 @@
-appId: com.pum_vendor
----
-# - runScript: manual/login.js
-
-- assertVisible:
-    text: ${output.login.errorMessage}
-    optional: true

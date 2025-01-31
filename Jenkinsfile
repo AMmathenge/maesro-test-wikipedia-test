@@ -1,34 +1,27 @@
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
-    agent any
-    tools {
-        maven 'MVN2'  // Ensure that 'MVN2' is defined in Jenkins Global Tool Configuration
+  agent any
+  environment {
+    ANDROID_HOME = '/usr/lib/android-sdk'  // Update this path!
+  }
+  stages {
+    stage('Accept Licenses') {
+      steps {
+        sh '''
+          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
+        '''
+      }
     }
-    environment {
-        ANDROID_HOME = '/opt/android-sdk'  // Update with the correct Android SDK path
-        PATH = "$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH"
+    stage('Install SDK Tools') {
+      steps {
+        sh '''
+          ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platform-tools" "platforms;android-34"
+        '''
+      }
     }
-    stages {
-        stage('Install SDK') {
-            steps {
-                sh '''
-                    yes | sdkmanager --licenses
-                    yes | sdkmanager "platform-tools" "build-tools;34.0.0"
-                '''
-            }
-        }
-        stage('Maven Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('Android Build') {
-            steps {
-                sh '''
-                    chmod +x gradlew
-                    ./gradlew assembleDebug
-                '''
-            }
-        }
+    stage('Build') {
+      steps {
+        sh './gradlew assembleDebug'
+      }
     }
+  }
 }

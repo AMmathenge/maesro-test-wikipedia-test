@@ -8,7 +8,7 @@ pipeline {
         stage('Accept Licenses') {
             steps {
                 sh '''
-          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --licenses
+          yes | ${ANDROID_HOME}/cmdline-tools/latest/cmdline-tools/bin/sdkmanager --licenses
         '''
             }
         }

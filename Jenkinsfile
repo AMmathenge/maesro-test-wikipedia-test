@@ -27,5 +27,4 @@ pipeline {
     }
 }
  
- The  ANDROID_HOME  environment variable is set to the path where the Android SDK is installed. The  Accept Licenses  stage accepts the licenses for the Android SDK. The  Install SDK Tools  stage installs the platform tools and the Android 12 SDK. The  Build  stage builds the Android app. 
- The  Jenkinsfile  is a declarative pipeline script. The pipeline has three stages:  Accept Licenses ,  Install SDK Tools , and  Build . Each stage has a  steps  block that contains shell commands to execute
+ 
